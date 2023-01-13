@@ -5,7 +5,6 @@ import Empty from './Empty';
 import Show from './Show';
 
 export default function Appointment(props) {
-  console.log('PROPS:', props);
 
   return (
     <article className="appointment">
