@@ -22,7 +22,6 @@ export default function Application(props) {
   const setDay = (day) => setState({ ...state, day });
 
   const bookInterview = (id, interview) => {
-    console.log("BOOK INTERVIEW FUNCT: ", id, interview);
     const appointment = {
       ...state.appointments[id],
       interview: { ...interview },
@@ -39,8 +38,25 @@ export default function Application(props) {
         appointments,
       });
     })
+  };
 
+  const cancelInterview = (id) => {
+    const appointment = {
+      ...state.appointments[id],
+      interview: null
+    };
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment,
+    };
 
+    return axios.delete(`api/appointments/${id}`, {})
+    .then(res => {
+      setState({
+        ...state,
+        appointments,
+      });
+    })
   };
 
   useEffect(() => {
@@ -68,6 +84,7 @@ export default function Application(props) {
         key={appointment.id}
         {...appointment}
         bookInterview={bookInterview}
+        cancelInterview={cancelInterview}
         interviewers={interviewerList}
       />
     );
