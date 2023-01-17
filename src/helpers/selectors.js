@@ -1,5 +1,3 @@
-import Appointment from "components/Appointment";
-
 export function getAppointmentsForDay(state, selected) {
   const filteredDays = state.days.filter(day => day.name === selected);
   if (state.days.length === 0 || filteredDays.length === 0) {
