@@ -39,7 +39,6 @@ export default function useApplicationData() {
       ...state.appointments,
       [id]: appointment,
     };
-    console.log("STATE: ", state);
 
     return axios.put(`api/appointments/${id}`, { interview }).then((res) => {
       setState({
