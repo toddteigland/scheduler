@@ -4,7 +4,6 @@ import "components/Application.scss";
 import Appointment from "./Appointment";
 import {
   getAppointmentsForDay,
-  getInterview,
   getInterviewersForDay,
 } from "helpers/selectors";
 import useApplicationData from "hooks/useApplicationData";
@@ -22,7 +21,6 @@ export default function Application(props) {
   const interviewerList = getInterviewersForDay(state, state.day);
 
   const schedule = appointmentList.map((appointment) => {
-    const interview = getInterview(state, appointment.interview);
     return (
       <Appointment
         key={appointment.id}

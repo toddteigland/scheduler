@@ -2,10 +2,8 @@ import React from "react";
 import "./styles.scss";
 
 export default function Show(props) {
-  const findInterviewer = props.interviewers.map((interviewer) => {
-    if (interviewer.id === props.interviewer) {
-      return interviewer.name;
-    }
+  const interviewer = props.interviewers.find((interviewer) => {
+    return interviewer.id === props.interviewer;
   });
 
   return (
@@ -14,7 +12,7 @@ export default function Show(props) {
         <h2 className="text--regular">{props.student}</h2>
         <section className="interviewer">
           <h4 className="text--light">Interviewer</h4>
-          <h3 className="text--regular">{findInterviewer}</h3>
+          <h3 className="text--regular">{interviewer.name}</h3>
         </section>
       </section>
       <section className="appointment__card-right">
