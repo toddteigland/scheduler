@@ -39,3 +39,10 @@ npm test
 ```sh
 npm run storybook
 ```
+## Screenshots
+
+!["Click the 'Plus' and book your appointment!"](https://github.com/toddteigland/scheduler/blob/master/docs/Interview_Scheduler%20-%20Appointments.png)
+
+!["Adding students name and selecting the interviewer"](https://github.com/toddteigland/scheduler/blob/master/docs/Interview_Scheduler%20-%20BookNew.png)
+
+!["Change of plans? Delete the newly created interview"](https://github.com/toddteigland/scheduler/blob/master/docs/Interview_Scheduler%20-%20Delete.png)
