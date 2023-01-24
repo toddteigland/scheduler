@@ -6,10 +6,6 @@ import "./InterviewerList.scss";
 
 export default function InterviewerList(props) {
 
-  // InterviewerList.PropTypes = {
-  //   interviewers: PropTypes.array.isRequired
-  // };
-
   const InterviewerListItems = props.interviewers.map((interviewer) => {
 
     return (

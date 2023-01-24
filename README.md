@@ -20,6 +20,8 @@ react-dom: ^16.9.0
 react-hooks-testing-library: ^0.6.0
 react-scripts: 3.0.0
 
+The API server can be found at: https://github.com/toddteigland/scheduler-api
+
 ## Running Webpack Development Server
 
 ```sh

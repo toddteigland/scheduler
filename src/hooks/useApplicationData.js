@@ -11,9 +11,10 @@ export default function useApplicationData() {
 
   const setDay = (day) => setState({ ...state, day });
 
+
+  //Find the current day and calculate the number of appts left
   const updateSpots = (appointments, id) => {
     const foundDay = state.days.find(day => state.day === day.name)
-    // const foundDay = state.days.find(day => day.appointments.includes(id))
     let spots = 0;
     for (let appointmentID of foundDay.appointments) {
       if (appointments[appointmentID].interview === null) {
@@ -30,6 +31,7 @@ export default function useApplicationData() {
     });
   };
 
+  
   const bookInterview = (id, interview) => {
     const appointment = {
       ...state.appointments[id],

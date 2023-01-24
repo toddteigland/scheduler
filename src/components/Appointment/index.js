@@ -19,6 +19,7 @@ export default function Appointment(props) {
   const EDITING = "EDITING";
   const ERROR_SAVE = "ERROR_SAVE";
   const ERROR_DELETE = "ERROR_DELETE";
+  const ERROR_EDIT = "ERROR_EDIT";
 
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
@@ -61,6 +62,23 @@ export default function Appointment(props) {
     transition(EDITING);
   };
 
+  const edit = (name, interviewer) => {
+    const interview = {
+      student: name,
+      interviewer,
+    };
+    transition(SAVING);
+    props
+      .bookInterview(props.id, interview)
+      .then(() => {
+        transition(SHOW);
+      })
+      .catch((res) => {
+        transition(ERROR_EDIT, true);
+
+      });
+  }
+
   return (
     <article className="appointment" data-testid="appointment">
       <Header time={props.time} />
@@ -89,11 +107,13 @@ export default function Appointment(props) {
           interviewers={props.interviewers}
           interviewer={props.interview.interviewer}
           onCancel={back}
-          onSave={save}
+          onSave={edit}
         />
       )}
-      {mode === ERROR_SAVE && (<Error message="Error Saving Interview" onClose={() => transition(EMPTY, true)} />)}
+      {mode === ERROR_SAVE && (<Error message="Error Saving Interview" onClose={() => transition(CREATE, true)} />)}
       {mode === ERROR_DELETE && (<Error message="Error Deleting Interview" onClose={() =>transition(SHOW, true)} />)}
+      {mode === ERROR_EDIT && (<Error message="Error Editing Interview" onClose={() =>transition(SHOW, true)} />)}
+
     </article>
   );
 }
