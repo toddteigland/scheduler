@@ -1,6 +1,6 @@
 # Interview Scheduler
 
-A single page web-app that allows lighthouse labs students to easily book and edit appointments with mentors. 
+A single page web-app that allows users to easily book and edit appointments with mentors. 
 
 This project was built while learning React, along with testing libraries Storybook, Jest and Cypress.
 
